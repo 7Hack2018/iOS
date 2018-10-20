@@ -23,6 +23,7 @@
 		4903E0BA217B42BA002F1925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4903E0BD217B42BA002F1925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4903E0BF217B42BA002F1925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4903E0C5217B4EA4002F1925 /* SevenHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SevenHack.entitlements; sourceTree = "<group>"; };
 		55BD8C29AC1A71FBF944CCB6 /* Pods-SevenHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SevenHack/Pods-SevenHack.debug.xcconfig"; sourceTree = "<group>"; };
 		70751FFE5241086962457203 /* Pods-SevenHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SevenHack/Pods-SevenHack.release.xcconfig"; sourceTree = "<group>"; };
 		765E97FF48B5A90C0AE8F8BD /* Pods_SevenHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +62,7 @@
 		4903E0B2217B42B8002F1925 /* SevenHack */ = {
 			isa = PBXGroup;
 			children = (
+				4903E0C5217B4EA4002F1925 /* SevenHack.entitlements */,
 				4903E0B3217B42B8002F1925 /* AppDelegate.swift */,
 				4903E0B5217B42B8002F1925 /* ViewController.swift */,
 				4903E0B7217B42B8002F1925 /* Main.storyboard */,
@@ -122,6 +124,11 @@
 				TargetAttributes = {
 					4903E0AF217B42B8002F1925 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.NearFieldCommunicationTagReading = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -356,14 +363,15 @@
 			baseConfigurationReference = 55BD8C29AC1A71FBF944CCB6 /* Pods-SevenHack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SevenHack/SevenHack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CGF6G8NVJ5;
 				INFOPLIST_FILE = SevenHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.7hack.SevenHack;
+				PRODUCT_BUNDLE_IDENTIFIER = io.doenicke.7hack2018.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,14 +383,15 @@
 			baseConfigurationReference = 70751FFE5241086962457203 /* Pods-SevenHack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SevenHack/SevenHack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CGF6G8NVJ5;
 				INFOPLIST_FILE = SevenHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.7hack.SevenHack;
+				PRODUCT_BUNDLE_IDENTIFIER = io.doenicke.7hack2018.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
