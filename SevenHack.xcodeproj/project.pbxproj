@@ -13,6 +13,8 @@
 		4903E0B9217B42B8002F1925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4903E0B7217B42B8002F1925 /* Main.storyboard */; };
 		4903E0BB217B42BA002F1925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4903E0BA217B42BA002F1925 /* Assets.xcassets */; };
 		4903E0BE217B42BA002F1925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4903E0BC217B42BA002F1925 /* LaunchScreen.storyboard */; };
+		4903E0C7217B8A36002F1925 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903E0C6217B8A36002F1925 /* API.swift */; };
+		499C3CC3217BD31B0009E94F /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C3CC2217BD31B0009E94F /* Balance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4903E0BD217B42BA002F1925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4903E0BF217B42BA002F1925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4903E0C5217B4EA4002F1925 /* SevenHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SevenHack.entitlements; sourceTree = "<group>"; };
+		4903E0C6217B8A36002F1925 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		499C3CC2217BD31B0009E94F /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		55BD8C29AC1A71FBF944CCB6 /* Pods-SevenHack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenHack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SevenHack/Pods-SevenHack.debug.xcconfig"; sourceTree = "<group>"; };
 		70751FFE5241086962457203 /* Pods-SevenHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SevenHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-SevenHack/Pods-SevenHack.release.xcconfig"; sourceTree = "<group>"; };
 		765E97FF48B5A90C0AE8F8BD /* Pods_SevenHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SevenHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +73,18 @@
 				4903E0BA217B42BA002F1925 /* Assets.xcassets */,
 				4903E0BC217B42BA002F1925 /* LaunchScreen.storyboard */,
 				4903E0BF217B42BA002F1925 /* Info.plist */,
+				499C3CC1217BD2FC0009E94F /* Network */,
 			);
 			path = SevenHack;
+			sourceTree = "<group>";
+		};
+		499C3CC1217BD2FC0009E94F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4903E0C6217B8A36002F1925 /* API.swift */,
+				499C3CC2217BD31B0009E94F /* Balance.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		6840C804B6602C794596ADC6 /* Pods */ = {
@@ -195,12 +209,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SevenHack/Pods-SevenHack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4903E0B6217B42B8002F1925 /* ViewController.swift in Sources */,
+				4903E0C7217B8A36002F1925 /* API.swift in Sources */,
+				499C3CC3217BD31B0009E94F /* Balance.swift in Sources */,
 				4903E0B4217B42B8002F1925 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
