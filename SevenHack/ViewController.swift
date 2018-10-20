@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        youtubePlayerView.load(withVideoId: "pIfRdTgy-bc", playerVars: playerVars)
+        fetchBalance()
+        loadVideo()
     }
 
     @IBAction func scan(_ sender: Any) {
@@ -31,6 +32,21 @@ class ViewController: UIViewController {
                                           invalidateAfterFirstRead: true)
         nfcSession?.alertMessage = "Let me grab all your private data! 😈"
         nfcSession?.begin()
+    }
+
+    private func loadVideo() {
+        youtubePlayerView.load(withVideoId: "pIfRdTgy-bc", playerVars: playerVars)
+    }
+
+    private func fetchBalance() {
+        API.getBalance { result in
+            switch result {
+            case .success(let balance):
+                print("SUCCESS: \(balance)")
+            case .failure(let error):
+                print("ERROR: \(error)")
+            }
+        }
     }
 
 }
@@ -75,13 +91,11 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
         var result = ""
         for message in messages {
             for payload in message.records {
-                if let s = String(data: payload.payload, encoding: .utf8) {
+                if let s = String(data: payload.payload.advanced(by: 3), encoding: .utf8) {
                     result += s
                 }
             }
         }
-
-        print(result)
     }
 
 }
