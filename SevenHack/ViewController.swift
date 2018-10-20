@@ -15,7 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var scanButton: UIButton!
 
-    var nfcSession: NFCNDEFReaderSession?
+    private var nfcSession: NFCNDEFReaderSession?
+
+    private let heartbeatInterval = 5.0
+    private var heartbeatTimer: Timer?
+    private var lastHeartbeat: Double?
+    private var untrackedHeartbeatSeconds = 0.0
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -23,6 +28,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         fetchBalance()
+        setUpPlayer()
         loadVideo()
     }
 
@@ -32,6 +38,10 @@ class ViewController: UIViewController {
                                           invalidateAfterFirstRead: true)
         nfcSession?.alertMessage = "Let me grab all your private data! 😈"
         nfcSession?.begin()
+    }
+
+    private func setUpPlayer() {
+        youtubePlayerView.delegate = self
     }
 
     private func loadVideo() {
@@ -45,6 +55,56 @@ class ViewController: UIViewController {
                 print("SUCCESS: \(balance)")
             case .failure(let error):
                 print("ERROR: \(error)")
+            }
+        }
+    }
+
+    private func startHeartbeat() {
+        print("START HEARTBEAT ❤")
+
+        heartbeatTimer?.invalidate()
+        lastHeartbeat = Date.now
+
+        guard untrackedHeartbeatSeconds < 1 else {
+            print("UNTRACKED HEARTBEAT: \(untrackedHeartbeatSeconds)")
+            heartbeatTimer = Timer.scheduledTimer(withTimeInterval: heartbeatInterval - untrackedHeartbeatSeconds, repeats: false) { _ in
+                self.heartbeat()
+                if self.untrackedHeartbeatSeconds >= self.heartbeatInterval {
+                    self.untrackedHeartbeatSeconds -= self.heartbeatInterval
+                } else {
+                    self.untrackedHeartbeatSeconds = 0
+                }
+                self.startHeartbeat()
+            }
+            return
+        }
+
+        heartbeatTimer = Timer.scheduledTimer(timeInterval: heartbeatInterval,
+                                              target: self,
+                                              selector: #selector(heartbeat),
+                                              userInfo: nil,
+                                              repeats: true)
+    }
+
+    private func stopHeartbeat() {
+        print("STOP HEARTBEAT 💔")
+        heartbeatTimer?.invalidate()
+        if let distance = lastHeartbeat?.distance(to: Date.now) {
+            untrackedHeartbeatSeconds += distance
+            print("💔 DISTANCE: \(distance) = \(untrackedHeartbeatSeconds)")
+        }
+        lastHeartbeat = nil
+    }
+
+    @objc private func heartbeat() {
+        print("❤️")
+        lastHeartbeat = Date.now
+        API.heartbeat(service: "YT") { result in
+            switch result {
+            case .success(let balance):
+                print("⏲ BALANCE: \(balance)")
+            case .failure(let error):
+                print("⏲ ERROR: \(error)")
             }
         }
     }
@@ -65,6 +125,12 @@ extension ViewController: YTPlayerViewDelegate {
 
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         print("didChangeTo state: \(state)")
+        switch state {
+        case .playing:
+            startHeartbeat()
+        default:
+            stopHeartbeat()
+        }
     }
 
     func playerView(_ playerView: YTPlayerView, didChangeTo quality: YTPlaybackQuality) {
@@ -96,6 +162,14 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
                 }
             }
         }
+    }
+
+}
+
+extension Date {
+
+    static var now: Double {
+        return Date().timeIntervalSince1970
     }
 
 }
