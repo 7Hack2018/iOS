@@ -32,6 +32,24 @@ enum API {
         }
     }
 
+    static func heartbeat(service: String, completion: @escaping (Result<Balance, Error>) -> Void) {
+        let url = baseURL.appendingPathComponent("/heartbeat")
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        components.queryItems = [
+            URLQueryItem(name: "type", value: "YT")
+        ]
+
+        get(components.url!) { result in
+            switch result {
+            case .success(let data):
+                guard let balance = try? JSONDecoder().decode(Balance.self, from: data) else { fallthrough }
+                completion(.success(balance))
+            case .failure:
+                completion(.failure(.unexpected))
+            }
+        }
+    }
+
     // MARK: - Private Helpers
 
     private static func get(_ url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void) {
