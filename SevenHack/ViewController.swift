@@ -14,7 +14,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var scanButton: UIButton!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private var nfcSession: NFCNDEFReaderSession?
 
     private let heartbeatInterval = 5.0
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
     }
 
     private func loadVideo() {
+        activityIndicator.startAnimating()
         youtubePlayerView.load(withVideoId: "pIfRdTgy-bc", playerVars: playerVars)
     }
 
@@ -121,6 +123,7 @@ extension ViewController: YTPlayerViewDelegate {
 
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         print("playerViewDidBecomeReady")
+        activityIndicator.stopAnimating()
     }
 
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
