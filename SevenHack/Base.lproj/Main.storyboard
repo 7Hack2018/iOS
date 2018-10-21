@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOW-d8-K6T">
-                                <rect key="frame" x="0.0" y="20" width="375" height="445"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="427"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-Zt-M2o" customClass="YTPlayerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="445"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="427"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-zd-ysz">
-                                        <rect key="frame" x="169" y="204" width="37" height="37"/>
+                                        <rect key="frame" x="169" y="195" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,7 +39,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="463-T5-lxU">
-                                <rect key="frame" x="16" y="481" width="343" height="166"/>
+                                <rect key="frame" x="16" y="463" width="343" height="184"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei0-lh-RyI">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="87.5"/>
@@ -54,44 +54,47 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mQB-cD-dfp">
-                                        <rect key="frame" x="0.0" y="136" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="136" width="343" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-E0-5Ks">
-                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="30"/>
-                                                <state key="normal" title="1"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-E0-5Ks">
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="1" image="bibi"/>
                                                 <connections>
                                                     <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oTN-0H-e61"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-oB-MeS">
-                                                <rect key="frame" x="68.5" y="0.0" width="68.5" height="30"/>
-                                                <state key="normal" title="2"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-oB-MeS">
+                                                <rect key="frame" x="68.5" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="2" image="benjamin"/>
                                                 <connections>
                                                     <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GGp-DO-qdt"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc4-fH-kpF">
-                                                <rect key="frame" x="137" y="0.0" width="69" height="30"/>
-                                                <state key="normal" title="3"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc4-fH-kpF">
+                                                <rect key="frame" x="137" y="0.0" width="69" height="48"/>
+                                                <state key="normal" title="3" image="maus"/>
                                                 <connections>
                                                     <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toI-qV-coA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b27-Td-sYa">
-                                                <rect key="frame" x="206" y="0.0" width="68.5" height="30"/>
-                                                <state key="normal" title="4"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b27-Td-sYa">
+                                                <rect key="frame" x="206" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="4" image="socke"/>
                                                 <connections>
                                                     <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lzR-G1-hm2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrH-Nd-rcb">
-                                                <rect key="frame" x="274.5" y="0.0" width="68.5" height="30"/>
-                                                <state key="normal" title="5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrH-Nd-rcb">
+                                                <rect key="frame" x="274.5" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="5" image="Teletubbies"/>
                                                 <connections>
                                                     <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIZ-J7-A1H"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="gPL-nY-i6e"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -128,4 +131,11 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Teletubbies" width="200" height="190"/>
+        <image name="benjamin" width="48" height="48"/>
+        <image name="bibi" width="48" height="48"/>
+        <image name="maus" width="48" height="48"/>
+        <image name="socke" width="48" height="48"/>
+    </resources>
 </document>
