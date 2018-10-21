@@ -25,12 +25,14 @@ class ViewController: UIViewController {
     private var lastHeartbeat: Double?
     private var untrackedHeartbeatSeconds = 0.0
 
+    private var balanceTimer: Timer?
+
     private let videos = [
         "WegyKz5FJC8",
         "Wg04ktp2Ieg",
         "aqvqabwx7HU",
         "6cOOTovIyf8",
-        "WuOpXzQhDFI"
+        "QFaGUFHDnIU"
     ]
 
     override var prefersStatusBarHidden: Bool {
@@ -79,6 +81,15 @@ class ViewController: UIViewController {
     }
 
     private func fetchBalance() {
+        if balanceTimer == nil {
+            balanceTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { _ in
+                print("balanceTimer")
+                if !(self.heartbeatTimer?.isValid ?? false) {
+                    self.fetchBalance()
+                }
+            })
+        }
+
         API.getBalance { result in
             switch result {
             case .success(let balances):
@@ -102,18 +113,26 @@ class ViewController: UIViewController {
         if m > 0 {
             time += "\(m)m "
         }
-        time += "\(s)s "
+        if s > 0 {
+            time += "\(s)s"
+        }
         return time
     }
 
     private func display(balance: Balance? = nil) {
-
-        if let time = balance?.limits {
-            timeLabel.text = secondsToTime(seconds: time)
-            timeLabel.isHidden = false
-        } else {
-            timeLabel.isHidden = true
+        guard let time = balance?.limits,
+            time > 0  else {
+                timeLabel.isHidden = true
+                noteLabel.isHidden = false
+                youtubePlayerView.isUserInteractionEnabled = false
+                youtubePlayerView.pauseVideo()
+                return
         }
+
+        timeLabel.text = secondsToTime(seconds: time)
+        timeLabel.isHidden = false
+        noteLabel.isHidden = true
+        youtubePlayerView.isUserInteractionEnabled = true
     }
 
     private func startHeartbeat() {
