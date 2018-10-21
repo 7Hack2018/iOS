@@ -17,32 +17,112 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-Zt-M2o" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="589"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOW-d8-K6T">
+                                <rect key="frame" x="0.0" y="20" width="375" height="446"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiD-Zt-M2o" customClass="YTPlayerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="446"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-zd-ysz">
+                                        <rect key="frame" x="169" y="204.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="p4v-zd-ysz" firstAttribute="centerY" secondItem="hOW-d8-K6T" secondAttribute="centerY" id="EQu-lc-nmR"/>
+                                    <constraint firstItem="XiD-Zt-M2o" firstAttribute="top" secondItem="hOW-d8-K6T" secondAttribute="top" id="HN3-Vb-NpS"/>
+                                    <constraint firstAttribute="bottom" secondItem="XiD-Zt-M2o" secondAttribute="bottom" id="JKp-O1-dFx"/>
+                                    <constraint firstItem="p4v-zd-ysz" firstAttribute="centerX" secondItem="hOW-d8-K6T" secondAttribute="centerX" id="JU1-Qe-pYF"/>
+                                    <constraint firstAttribute="trailing" secondItem="XiD-Zt-M2o" secondAttribute="trailing" id="TEO-Sx-U1a"/>
+                                    <constraint firstItem="XiD-Zt-M2o" firstAttribute="leading" secondItem="hOW-d8-K6T" secondAttribute="leading" id="nOL-5X-lKM"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tug-gz-kLT">
-                                <rect key="frame" x="16" y="617" width="343" height="30"/>
-                                <state key="normal" title="Scan"/>
-                                <connections>
-                                    <action selector="scan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qb1-E1-gsm"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="463-T5-lxU">
+                                <rect key="frame" x="16" y="482" width="343" height="165"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99h 99m 99s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ei0-lh-RyI">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="68.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No time left. Insert a coin to watch." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSj-Vy-IfB">
+                                        <rect key="frame" x="0.0" y="82.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mQB-cD-dfp">
+                                        <rect key="frame" x="0.0" y="117" width="343" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-E0-5Ks">
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="1" image="bibi"/>
+                                                <connections>
+                                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oTN-0H-e61"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-oB-MeS">
+                                                <rect key="frame" x="68.5" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="2" image="benjamin"/>
+                                                <connections>
+                                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GGp-DO-qdt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc4-fH-kpF">
+                                                <rect key="frame" x="137" y="0.0" width="69" height="48"/>
+                                                <state key="normal" title="3" image="maus"/>
+                                                <connections>
+                                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toI-qV-coA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b27-Td-sYa">
+                                                <rect key="frame" x="206" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="4" image="socke"/>
+                                                <connections>
+                                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lzR-G1-hm2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrH-Nd-rcb">
+                                                <rect key="frame" x="274.5" y="0.0" width="68.5" height="48"/>
+                                                <state key="normal" title="5" image="Teletubbies"/>
+                                                <connections>
+                                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIZ-J7-A1H"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="gPL-nY-i6e"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ei0-lh-RyI" secondAttribute="trailing" id="LFa-Vu-V1b"/>
+                                    <constraint firstAttribute="trailing" secondItem="nSj-Vy-IfB" secondAttribute="trailing" id="NVM-wa-GPw"/>
+                                    <constraint firstItem="nSj-Vy-IfB" firstAttribute="leading" secondItem="463-T5-lxU" secondAttribute="leading" id="X9G-n3-vEQ"/>
+                                    <constraint firstItem="Ei0-lh-RyI" firstAttribute="leading" secondItem="463-T5-lxU" secondAttribute="leading" id="ZJx-b9-fjM"/>
+                                    <constraint firstAttribute="trailing" secondItem="mQB-cD-dfp" secondAttribute="trailing" id="r5L-1f-Exk"/>
+                                    <constraint firstItem="mQB-cD-dfp" firstAttribute="leading" secondItem="463-T5-lxU" secondAttribute="leading" id="w8c-I3-OO9"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tug-gz-kLT" secondAttribute="bottom" constant="20" id="5yl-45-0cM"/>
-                            <constraint firstItem="XiD-Zt-M2o" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BH7-1Y-nIB"/>
-                            <constraint firstItem="XiD-Zt-M2o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cge-qf-mVJ"/>
-                            <constraint firstItem="Tug-gz-kLT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LX7-Df-qsz"/>
-                            <constraint firstItem="XiD-Zt-M2o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TXT-zq-o1x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tug-gz-kLT" secondAttribute="trailing" constant="16" id="XmG-Uy-Cvr"/>
-                            <constraint firstItem="Tug-gz-kLT" firstAttribute="top" secondItem="XiD-Zt-M2o" secondAttribute="bottom" constant="8" id="ndc-3t-6wt"/>
+                            <constraint firstItem="463-T5-lxU" firstAttribute="top" secondItem="hOW-d8-K6T" secondAttribute="bottom" constant="16" id="1tE-Fu-yIR"/>
+                            <constraint firstItem="hOW-d8-K6T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4aq-49-Pzp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="463-T5-lxU" secondAttribute="bottom" constant="20" id="8Zc-0C-sol"/>
+                            <constraint firstItem="hOW-d8-K6T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cEm-iE-EdY"/>
+                            <constraint firstItem="hOW-d8-K6T" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hTg-pm-nhD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="463-T5-lxU" secondAttribute="trailing" constant="16" id="iES-BJ-wgD"/>
+                            <constraint firstItem="463-T5-lxU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nTU-he-yzs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="scanButton" destination="Tug-gz-kLT" id="qYK-Xg-5Ov"/>
+                        <outlet property="activityIndicator" destination="p4v-zd-ysz" id="2Hb-Pd-4b6"/>
+                        <outlet property="noteLabel" destination="nSj-Vy-IfB" id="qcQ-XE-NLb"/>
+                        <outlet property="timeLabel" destination="Ei0-lh-RyI" id="4Ue-Fo-jOP"/>
                         <outlet property="youtubePlayerView" destination="XiD-Zt-M2o" id="hco-T1-oMT"/>
                     </connections>
                 </viewController>
@@ -51,4 +131,11 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Teletubbies" width="200" height="190"/>
+        <image name="benjamin" width="48" height="48"/>
+        <image name="bibi" width="48" height="48"/>
+        <image name="maus" width="48" height="48"/>
+        <image name="socke" width="48" height="48"/>
+    </resources>
 </document>

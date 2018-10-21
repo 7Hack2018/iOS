@@ -15,7 +15,7 @@ enum API {
         case unexpected
     }
 
-    private static let baseUrl = "https://18e777e3.ngrok.io/broker"
+    private static let baseUrl = "http://18.184.151.41:8000/broker"
     private static let baseURL = URL(string: baseUrl)!
 
     // MARK: - Public Methods
